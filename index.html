@@ -172,9 +172,9 @@
 
     }
 
+    $("#help").popup({"vertical":"top"});
     var helpWasShown = localStorage.getItem("helpShown");
     if(!helpWasShown){
-        $("#help").popup({"vertical":"top"});
         $("#help").popup("show");
         localStorage.setItem("helpShown", 1);
     }
