@@ -76,13 +76,13 @@
                         <div>&nbsp;</div>
                         <div class="input-group">
                                 <span class="input-group-addon">
-                                    <input type="radio" name="mode" aria-label="Listen" checked>
+                                    <input type="radio" name="mode" aria-label="Listen" id="listen" checked>
                                 </span>
                             <input type="text" readonly class="form-control" aria-label="sound" value="Listen" />
                         </div>
                         <div class="input-group">
                                 <span class="input-group-addon">
-                                    <input type="radio" name="mode" aria-label="Pronounce">
+                                    <input type="radio" name="mode" aria-label="Pronounce" id="pronounce">
                                 </span>
                             <input type="text" readonly class="form-control" aria-label="sound" value="Pronounce" />
                         </div>
@@ -106,8 +106,7 @@
             </ul>
         </div>
         <div id="wrapper" class="jumbotron">
-
-            <h1 onclick="responsiveVoice.speak($('#text').val());">
+            <h1 id="number-wrapper" onclick="responsiveVoice.speak($('#text').val());">
                 <span id="number" class="label label-primary">123</span>
             </h1>
             <input type="hidden" id="text" value="123"/>
@@ -116,10 +115,27 @@
     </div>
 <script>
     function run() {
-        var newNumber = getNumber($('#textLength').val());
-        $('#number').text(newNumber);
-        $('#text').val(newNumber);
-        responsiveVoice.speak($('#text').val());
+        if($("#listen").prop("checked")) {
+            $('#number-wrapper').css("visibility", "hidden");
+            var newNumber = getNumber($('#textLength').val());
+            $('#number').text(newNumber);
+            $('#text').val(newNumber);
+            responsiveVoice.speak($('#text').val());
+            var timeout = $('#delay').val() * 1000 + 1000;
+            setTimeout(function () {
+                $('#number-wrapper').css("visibility", "visible");
+            }, timeout);
+        } else {
+            var newNumber = getNumber($('#textLength').val());
+            $('#number').text(newNumber);
+            $('#text').val(newNumber);
+            var timeout = $('#delay').val() * 1000 + 1000;
+            setTimeout(function () {
+                responsiveVoice.speak($('#text').val());
+            }, timeout);
+
+        }
+
     }
 
 
