@@ -11,10 +11,13 @@
 </head>
 <body>
 <style>
-    #wrapper{
+    .container {
+        width:320px;
+    }
+    #wrapper {
         text-align: center;
         height: 400px;
-        padding: 100px;
+        padding: 80px;
     }
     .navbar-nav {
         float: left;
@@ -142,7 +145,7 @@
                 <span id="number" class="label label-primary">123</span>
             </h1>
             <h1 id="answer-wrapper" style="visibility: hidden;">
-                <input type="text" id="answer" class="form-control input-number" placeholder="Answer" style="text-align: center; width: 200px; margin: 0px auto;"
+                <input type="text" id="answer" class="form-control input-number" placeholder="Answer" style="text-align: center; width: 100%; margin: 0px auto;"
                        onkeyup="parseAnswer()" onclick="responsiveVoice.speak($('#text').val());" />
                 <audio id="ring" src="ring.wav" preload="auto"></audio>
             </h1>
