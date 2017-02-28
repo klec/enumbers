@@ -78,48 +78,54 @@
                         </h4>
                         <div class="input-group">
                                 <span class="input-group-addon">
-                                    <input type="radio" name="control" aria-label="exam" id="exam" checked>
+                                    <input type="radio" name="control" aria-label="exam" id="exam" checked
+                                           onclick="$('#selftest-block').css('visibility', 'hidden');" >
                                 </span>
-                            <input type="text" readonly class="form-control" aria-label="sound" value="Exam" />
+                            <input type="text" readonly class="form-control" aria-label="sound" value="Exam"
+                                           onclick="$('#selftest-block').css('visibility', 'hidden');" />
                         </div>
                         <div class="input-group" >
                                 <span class="input-group-addon">
-                                    <input type="radio" name="control" aria-label="self-control" id="selfcontrol">
+                                    <input type="radio" name="control" aria-label="self-control" id="selfcontrol"
+                                           onclick="$('#selftest-block').css('visibility', 'visible');" >
                                 </span>
-                            <input type="text" readonly class="form-control" aria-label="sound" value="Self-control" />
+                            <input type="text" readonly class="form-control" aria-label="sound" value="Self-control"
+                                   onclick="$('#selftest-block').css('visibility', 'visible');" />
                         </div>
-                        <div>&nbsp;</div>
-                        <h4>
-                            <span id="delay-label" class="label label-default">Delay in sec.</span>
-                        </h4>
-                        <div class="input-group" style="width: 150px; margin: 0px auto;">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-primary" onclick="$('#delay').val($('#delay').val()-1)">-</button>
-                                </span>
-                            <input type="text" id="delay" class="form-control input-number" maxlength="8" value="3" style="text-align: center;">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-primary" onclick="$('#delay').val(($('#delay').val())*1+1)">+</button>
-                                </span>
-                        </div>
-                        <div>&nbsp;</div>
-                        <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input type="radio" name="mode" aria-label="Listen" id="listen" checked>
-                                </span>
-                            <input type="text" readonly class="form-control" aria-label="sound" value="Listen" />
-                        </div>
-                        <div class="input-group" >
-                                <span class="input-group-addon">
-                                    <input type="radio" name="mode" aria-label="Pronounce" id="pronounce">
-                                </span>
-                            <input type="text" readonly class="form-control" aria-label="sound" value="Pronounce" />
-                        </div>
-                        <div class="input-group hidden">
+                        <div id="selftest-block" style="visibility: hidden">
                             <div>&nbsp;</div>
-                            <span class="input-group-addon">
-                                <input type="checkbox" name="help" aria-label="Help" id="help_trigger" >
-                            </span>
-                            <input type="text" readonly class="form-control" aria-label="Help" value="Help tooltips" />
+                                <h4>
+                                    <span id="delay-label" class="label label-default">Delay in sec.</span>
+                                </h4>
+                                <div class="input-group" style="width: 150px; margin: 0px auto;">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-primary" onclick="$('#delay').val($('#delay').val()-1)">-</button>
+                                        </span>
+                                    <input type="text" id="delay" class="form-control input-number" maxlength="8" value="3" style="text-align: center;">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-primary" onclick="$('#delay').val(($('#delay').val())*1+1)">+</button>
+                                        </span>
+                                </div>
+                                <div>&nbsp;</div>
+                                <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input type="radio" name="mode" aria-label="Listen" id="listen" checked>
+                                        </span>
+                                    <input type="text" readonly class="form-control" aria-label="sound" value="Listen" />
+                                </div>
+                                <div class="input-group" >
+                                        <span class="input-group-addon">
+                                            <input type="radio" name="mode" aria-label="Pronounce" id="pronounce">
+                                        </span>
+                                    <input type="text" readonly class="form-control" aria-label="sound" value="Pronounce" />
+                                </div>
+                                <div class="input-group hidden">
+                                    <div>&nbsp;</div>
+                                    <span class="input-group-addon">
+                                        <input type="checkbox" name="help" aria-label="Help" id="help_trigger" >
+                                    </span>
+                                    <input type="text" readonly class="form-control" aria-label="Help" value="Help tooltips" />
+                                </div>
                         </div>
                     </div>
                 </li>
@@ -155,8 +161,8 @@
             <input type="hidden" id="text" value="123"/>
             <br/><button onclick="run()" class="btn btn-lg btn-default">Go!</button>
         </div>
-        <div id="help" style="font-family:'Comic Sans MS';top:7px; margin-left: -52px; color: white;">
-            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<- Settings</h1><br /><br /><br /><br /><br /><br /><br /><br />
+        <div id="help" style="font-family:'Comic Sans MS';top:1px; margin-left: -30px; color: white;">
+            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<- Settings</h1><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             <h1>It's simple!</h1>
             <ol style="font-size: 26px; line-height: 40px;  ">
                 <li>Click -></li>
@@ -195,6 +201,8 @@
                     $('#number-wrapper').css("visibility", "visible");
                 }, timeout);
             } else {
+                $('#number-wrapper').css("visibility", "visible");
+                $('#answer-wrapper').css("visibility", "hidden");
                 var newNumber = getNumber($('#textLength').val());
                 $('#number').text(newNumber);
                 $('#text').val(newNumber);
