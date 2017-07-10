@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+<style type="text/css">
+    * {margin:0px; padding: 0px;}
+    #world {
+        width: 100%;
+        height: calc(100% - 60px);
+        position: absolute;
+        display: block;
+        left: 50%;
+        top:50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    #logo {
+            stroke-dasharray: 400px;
+            stroke-dashoffset: 400px;
+            animation-name: draw_logo;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1;
+            animation-timing-function: linear;
+        }
+    #name {
+        stroke-dasharray: 600px;
+        stroke-dashoffset: 600px;
+        animation-name: draw_name;
+        animation-duration: 3s;
+        
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+    }
+    #circle {
+        animation-name: logo_circle;
+        animation-duration: 0.4s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+    }
+
+    @keyframes draw_logo {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+   @keyframes draw_name {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+    @keyframes logo_circle {
+        to {
+            r: 240;
+        }
+    }
+</style>
+</head>
+
+<body>
+<svg id="world" style="" xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns="http://www.w3.org/2000/svg">
+    <metadata
+            id="metadata8">
+        <rdf:RDF>
+            <cc:Work
+                    rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                        rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <g transform="matrix(0.5,0,0,0.5,10,20)" id="complete_logo" style="stroke:#3b393d;" fill="none" stroke-linecap="round" stroke-width="30">
+        <g id="logo">
+            <circle id="circle" fill="#80cc2a" stroke="none" cx="240" cy="240" r="0"></circle>
+            <path id="SS" d="M245,235 l-35,35 c-50,50 -120,-20 -70,-70 l100,-100 M245,235 l35,-35 c50,-50 120,20 70,70 l-100,100"/>
+            <path id="S1" d="m245,165 -70,70 "/>
+            <path id="S2" d="m245,305 70,-70 "/>
+        </g>
+        <g id="name">
+            <path id="S" d="M645,245 h-50 c-65,0 -65,-100 0,-100 h145 M645,245 h50 c65,0 65,100 -5,100 h-145"/>
+            <path id="p" d="m790,275 c0,40 30,66 66,66 40,0 66,-30 66,-66 0,-40 -30,-66 -66,-66 -40,0 -66,30 -66,66 l0,127 "/>
+            <path id="e1" d="m980,275 l 110,0 c10,0 10,0 10,-10 0,-25 -30,-55 -66,-55 -40,0 -66,30 -66,66 0,40 30,66 66,66 20,0 30,0 50,-16"/>
+            <path id="r" d="m1200,213 c-30,10 -50,30 -50,66 l0,65 "/>
+            <path id="o" d="m1312,213 c-40,0 -66,30 -66,66 0,40 30,66 66,66 40,0 66,-30 66,-66 0,-40 -30,-66 -66,-66 z"/>
+            <path id="t" d="m1475,213 h-50 v-65 m0,0 v130 c0,30 20,60 50,65 "/>
+            <path id="e2" d="m1533,275 h110 c10,0 10,0 10,-10 0,-25 -30,-55 -66,-55 -40,0 -66,30 -66,66 0,40 30,66 66,66 20,0 30,0 50,-16"/>
+            <path id="c" d="m1830,245 c-15,-20 -30,-35 -60,-35 -40,0 -66,30 -66,66 0,40 30,66 66,66 20,0 45,-15 55,-35"/>
+            <path id="k" d="m1885,150 v195 m130,-135 c0,40 -20,65 -70,65 h-60 h 60 c40,0 70,40 70,70"/>
+        </g>
+    </g>
+</svg>
+</body>
+</html>
