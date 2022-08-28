@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//responsivevoice.org/responsivevoice/responsivevoice.js"></script>
+    <script src="//getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+</head>
+<body>
+<style>
+    .container {
+        width:320px;
+    }
+    #wrapper {
+        text-align: center;
+        height: 400px;
+        padding: 80px;
+    }
+    .navbar-nav {
+        float: left;
+        margin: 0;
+    }
+    .navbar-right {
+        float: right !important;
+        margin-right: 0;
+    }
+    .navbar-nav .open .dropdown-menu {
+        position: absolute;
+        background-color: white;
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+
+    }
+    h1 {
+        font-size: 40px !important;
+    }
+</style>
+    <div class="container">
+        <div class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                        <svg width="85px" height="60px" id="Layer_1" version="1.1" viewBox="0 5 130 110" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g stroke-width="2" stroke="grey" fill="grey">
+                                    <path d="M42.616,43.104c-5.295,0-9.604-4.309-9.604-9.604c0-5.295,4.309-9.603,9.604-9.603s9.604,4.308,9.604,9.603  C52.22,38.796,47.911,43.104,42.616,43.104z M42.616,27.897c-3.09,0-5.604,2.514-5.604,5.603c0,3.09,2.514,5.604,5.604,5.604  S48.22,36.59,48.22,33.5C48.22,30.411,45.706,27.897,42.616,27.897z"/>
+                                    <path d="M56.106,104.215c-5.295,0-9.604-4.309-9.604-9.605c0-5.295,4.309-9.604,9.604-9.604c5.297,0,9.605,4.309,9.605,9.604  C65.712,99.906,61.403,104.215,56.106,104.215z M56.106,89.006c-3.09,0-5.604,2.514-5.604,5.604c0,3.092,2.514,5.605,5.604,5.605  c3.091,0,5.605-2.514,5.605-5.605C61.712,91.52,59.197,89.006,56.106,89.006z"/>
+                                    <path d="M69.501,73.661c-5.298,0-9.607-4.31-9.607-9.605c0-5.295,4.31-9.604,9.607-9.604c5.294,0,9.602,4.308,9.602,9.604  C79.103,69.352,74.795,73.661,69.501,73.661z M69.501,58.452c-3.092,0-5.607,2.514-5.607,5.604c0,3.091,2.516,5.605,5.607,5.605  c3.089,0,5.602-2.515,5.602-5.605C75.103,60.966,72.59,58.452,69.501,58.452z"/>
+                                </g>
+                                <g stroke-width="6" stroke="grey" stroke-linecap="round" fill="grey">
+                                    <path d="M112,33 h-50"/>
+                                    <path d="M112,64 h-23.5"/>
+                                    <path d="M112,95 h-36"/>
+                                    <path d="M17,33 h17"/>
+                                    <path d="M17,64 h43.5"/>
+                                    <path d="M17,95 h28"/>
+                                </g>
+                            </svg>
+                    </a>
+                    <div class="dropdown-menu" style="padding: 10px 20px 20px">
+                        <h4>
+                            <span id="length-label" class="label label-default">Number length</span>
+                        </h4>
+                        <div class="input-group" style="width: 150px; margin: 0px auto;">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" onclick="$('#textLength').val($('#textLength').val()-1)">-</button>
+                                </span>
+                            <input type="text" id="textLength" class="form-control input-number" maxlength="8" value="3"  style="text-align: center;">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" onclick="$('#textLength').val(($('#textLength').val())*1+1)">+</button>
+                                </span>
+                        </div>
+                        <div>&nbsp;</div>
+                        <h4>
+                            <span id="mode-label" class="label label-default">Mode</span>
+                        </h4>
+                        <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input type="radio" name="control" aria-label="exam" id="exam" checked
+                                           onclick="$('#selftest-block').css('visibility', 'hidden');" >
+                                </span>
+                            <input type="text" readonly class="form-control" aria-label="sound" value="Exam"
+                                           onclick="$('#selftest-block').css('visibility', 'hidden');" />
+                        </div>
+                        <div class="input-group" >
+                                <span class="input-group-addon">
+                                    <input type="radio" name="control" aria-label="self-control" id="selfcontrol"
+                                           onclick="$('#selftest-block').css('visibility', 'visible');" >
+                                </span>
+                            <input type="text" readonly class="form-control" aria-label="sound" value="Self-control"
+                                   onclick="$('#selftest-block').css('visibility', 'visible');" />
+                        </div>
+                        <div id="selftest-block" style="visibility: hidden">
+                            <div>&nbsp;</div>
+                                <h4>
+                                    <span id="delay-label" class="label label-default">Delay in sec.</span>
+                                </h4>
+                                <div class="input-group" style="width: 150px; margin: 0px auto;">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-primary" onclick="$('#delay').val($('#delay').val()-1)">-</button>
+                                        </span>
+                                    <input type="text" id="delay" class="form-control input-number" maxlength="8" value="3" style="text-align: center;">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-primary" onclick="$('#delay').val(($('#delay').val())*1+1)">+</button>
+                                        </span>
+                                </div>
+                                <div>&nbsp;</div>
+                                <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input type="radio" name="mode" aria-label="Listen" id="listen" checked>
+                                        </span>
+                                    <input type="text" readonly class="form-control" aria-label="sound" value="Listen" />
+                                </div>
+                                <div class="input-group" >
+                                        <span class="input-group-addon">
+                                            <input type="radio" name="mode" aria-label="Pronounce" id="pronounce">
+                                        </span>
+                                    <input type="text" readonly class="form-control" aria-label="sound" value="Pronounce" />
+                                </div>
+                                <div class="input-group hidden">
+                                    <div>&nbsp;</div>
+                                    <span class="input-group-addon">
+                                        <input type="checkbox" name="help" aria-label="Help" id="help_trigger" >
+                                    </span>
+                                    <input type="text" readonly class="form-control" aria-label="Help" value="Help tooltips" />
+                                </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" onclick="$('#help').popup('show');">
+                        <svg width="80px" height="71px" viewBox="0 -3 20 25" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none">
+                                <g id="info-outline" transform="" stroke-width="1.4" stroke="grey" stroke-linecap="round">
+                                    <path d="M10,12 c0,-2 2,-3 2,-3  c1,-1 1,-3 -2,-3 c-1,0 -2,1 -2,2"/>
+                                    <path d="M10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 Z"/>
+                                    <path d="M10,14.5 c0,0 0,0 0,0 "/>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="wrapper" class="jumbotron">
+            <h1 id="number-wrapper" style="visibility: hidden;" onclick="responsiveVoice.speak($('#text').val());">
+                <span id="number" class="label label-primary">123</span>
+            </h1>
+            <h1 id="answer-wrapper" style="visibility: hidden;">
+                <input type="text" id="answer" class="form-control input-number" placeholder="Answer" style="text-align: center; width: 100%; margin: 0px auto;"
+                       onkeyup="parseAnswer()" onclick="responsiveVoice.speak($('#text').val());" />
+                <audio id="ring" src="ring.wav" preload="auto"></audio>
+            </h1>
+            <h1 id="recognize" class="hidden">
+                <span class="label label-primary">listen...</span>
+            </h1>
+            <input type="hidden" id="text" value="123"/>
+            <br/><button onclick="run()" class="btn btn-lg btn-default">Go!</button>
+        </div>
+        <div id="help" style="font-family:'Comic Sans MS';top:1px; margin-left: -30px; color: white;">
+            <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<- Settings</h1><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <h1>It's simple!</h1>
+            <ol style="font-size: 26px; line-height: 40px;  ">
+                <li>Click -></li>
+                <li>Listen and recognize</li>
+                <li>Check right answer</li>
+            </ol>
+        </div>
+    </div>
+<script>
+    function run() {
+        if($("#exam").prop("checked")){
+            $('#number-wrapper').css("visibility", "hidden");
+            $('#answer-wrapper').css("visibility", "hidden");
+            var newNumber = getNumber($('#textLength').val());
+            $('#text').val(newNumber);
+            responsiveVoice.speak($('#text').val());
+            var timeout = 1000;
+            setTimeout(function () {
+                $('#answer').val("");
+                $('#answer').css("border","none")
+                $('#answer-wrapper').css("visibility", "visible");
+                $('#answer').focus();
+
+            }, timeout);
+
+        }else {
+            if ($("#listen").prop("checked")) {
+                $('#number-wrapper').css("visibility", "hidden");
+                $('#answer-wrapper').css("visibility", "hidden");
+                var newNumber = getNumber($('#textLength').val());
+                $('#number').text(newNumber);
+                $('#text').val(newNumber);
+                responsiveVoice.speak($('#text').val());
+                var timeout = $('#delay').val() * 1000 + 1000;
+                setTimeout(function () {
+                    $('#number-wrapper').css("visibility", "visible");
+                }, timeout);
+            } else {
+                $('#number-wrapper').css("visibility", "visible");
+                $('#answer-wrapper').css("visibility", "hidden");
+                var newNumber = getNumber($('#textLength').val());
+                $('#number').text(newNumber);
+                $('#text').val(newNumber);
+                var timeout = $('#delay').val() * 1000 + 1000;
+                setTimeout(function () {
+                    responsiveVoice.speak($('#text').val());
+                }, timeout);
+
+            }
+        }
+
+    }
+
+    function parseAnswer() {
+        if($('#answer').val() == $('#text').val()) {
+            //document.getElementById('ring').play();
+            $('#answer').css("border","green solid 2px")
+            setTimeout(function () {
+                run();
+            }, 500);
+        } else {
+            $('#answer').css("border","red solid 1px")
+        }
+
+    }
+
+    function getNumber(length) {
+        return Math.floor(Math.random() * (Math.pow(10, length)-Math.pow(10, length-1)))+Math.pow(10, length-1);
+
+    }
+
+    $("#help").popup({"vertical":"top"});
+    var helpWasShown = localStorage.getItem("helpShown");
+    if(!helpWasShown){
+        $("#help").popup("show");
+        localStorage.setItem("helpShown", 1);
+    }
+</script>
+</body>
+</html>
